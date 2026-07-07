@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: catalogue
+  namespace: roboshop
+  labels:
+    project: roboshop
+    environment: dev
+    tier: backend
+    component: catalogue
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      project: roboshop
+      environment: dev
+      tier: backend
+      component: catalogue
+
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        environment: dev
+        tier: backend
+        component: catalogue
+
+    spec:
+      containers:
+      - name: catalogue
+        image: jayashankar1994/catalogue:1.0.0
+
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: catalogue
+  namespace: roboshop
+  labels:
+    project: roboshop
+    environment: dev
+    tier: dbbackend
+    component: catalogue
+
+spec:
+  selector:
+    project: roboshop
+    environment: dev
+    tier: backend
+    component: catalogue
+
+  ports:
+  - protocol: TCP
+    port: 8080 # service port
+    targetPort: 8080  # container port  

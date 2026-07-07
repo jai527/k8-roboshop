@@ -60,7 +60,7 @@ metadata:
   labels:
     project: roboshop
     environment: dev
-    tier: dbbackend
+    tier: backend
     component: catalogue
 
 spec:

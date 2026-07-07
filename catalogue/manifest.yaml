@@ -48,8 +48,8 @@ spec:
       - name: catalogue
         image: jayashankar1994/catalogue:1.0.0
         envFrom: 
-        - configMapRef:
-          name: catalogue
+          - configMapRef:
+            name: catalogue
 ---
 apiVersion: v1
 kind: Service

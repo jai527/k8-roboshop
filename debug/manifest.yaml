@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: debug
+  namespace: roboshop
+
+spec:
+  containers:
+  - name: debug
+    image: jayashankar1994/debug:1.0.0

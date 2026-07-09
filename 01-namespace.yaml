@@ -6,3 +6,14 @@ metadata:
     project: roboshop
     environment: dev
     purpose: poc
+
+apiVersion: v1
+kind: Namespace
+
+metadata:
+  name: roboshop1
+  labels:
+    project: roboshop
+    environment: dev
+    purpose: poc
+

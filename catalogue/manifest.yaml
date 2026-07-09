@@ -51,11 +51,11 @@ spec:
         image: jayashankar1994/catalogue:1.0.0
       resources:
         requests:
-          cpu: "100m"
-          memory: "128mi"
+          cpu: "68m"
+          memory: "100mi"
         limits:
-          cpu: "100m"
-          memory: "128mi"
+          cpu: "68m"
+          memory: "100mi"
       readinessProbe:
         # httpGet:
         #   path: /health

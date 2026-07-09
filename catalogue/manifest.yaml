@@ -48,7 +48,8 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: jayashankar1994/catalogue:1.0.0
+        image: jayashankar1994/catalogue:1.4.0
+        imagePullPolicy: Always   # Kubernetes always checks the registry and pulls the image.
         resources:
           requests:
             cpu: "68m"

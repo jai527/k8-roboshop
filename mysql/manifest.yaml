@@ -3,6 +3,7 @@ kind: Deployment
 
 metadata:
   name: mysql
+  namespace: roboshop
   labels:
     project: roboshop
     environment: dev

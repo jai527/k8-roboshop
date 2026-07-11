@@ -50,21 +50,22 @@ spec:
             name: rabbitmq
 ---
 
+
 apiVersion: v1
 kind: Service
 
 metadata:
   name: rabbitmq
+  namespace: roboshop
   labels:
     project: roboshop
     environment: dev
     tier: db
     component: rabbitmq
-  
-  ports:
-    protocol: TCP 
-    port: 5672
-    targetPort: 5672
+
+spec:
+  selector:
+    project: roboshop
 
 
 

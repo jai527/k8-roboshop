@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: frontend
+  namespace: roboshop
+  labels:
+    project: roboshop
+    environment: dev
+    tier: frontend
+    component: frontend
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      project: roboshop
+      environment: dev
+      tier: frontend
+      component: frontend
+
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        environment: dev
+        tier: frontend
+        component: frontend
+    
+    spec:
+      containers:
+      - name: frontend
+        image: jayashankar1994/frontend:1.4.0
+        imagePullPolicy: Always   # Kubernetes always checks the registry and pulls the image.
+        resources:
+          requests:
+            cpu: "68m"
+            memory: "100Mi"
+          limits:
+            cpu: "68m"
+            memory: "100Mi"
+        readinessProbe:
+          # httpGet:
+          #   path: /health
+          #   port: 8080
+          tcpSocket:
+            port: 80
+          failureThreshold: 2
+          periodSeconds: 10
+          initialDelaySeconds: 15
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 2
+          periodSeconds: 10
+        envFrom:
+          - configMapRef:
+              name: frontend
+
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: frontend
+  namespace: roboshop
+  labels:
+    project: roboshop
+    environment: dev
+    tier: frontend
+    component: frontend
+
+spec:
+  selector:
+    project: roboshop
+    environment: dev
+    tier: frontend
+    component: frontend
+
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

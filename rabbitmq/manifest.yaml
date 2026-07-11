@@ -66,6 +66,15 @@ metadata:
 spec:
   selector:
     project: roboshop
+    environment: dev
+    tier: db
+    component: mysql
+    
+  ports:
+  - protocol: TCP
+    port: 5672
+    targetPort: 5672
+
 
 
 

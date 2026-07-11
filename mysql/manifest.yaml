@@ -3,11 +3,11 @@ kind: Deployment
 
 metadata:
   name: mysql
-labels:
-  project: roboshop
-  environment: dev
-  tier: db
-  component: mysql
+  labels:
+    project: roboshop
+    environment: dev
+    tier: db
+    component: mysql
 
 spec:
   replicas: 1

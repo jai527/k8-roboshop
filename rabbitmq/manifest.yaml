@@ -27,8 +27,7 @@ metadata:
 spec:
   replicas: 1
 
-  metadata:
-    selector:
+  selector:
     matchLabels:
       project: roboshop
       environment: dev
@@ -52,7 +51,7 @@ spec:
 ---
 
 apiVersion: v1
-kind: service
+kind: Service
 
 metadata:
   name: rabbitmq
